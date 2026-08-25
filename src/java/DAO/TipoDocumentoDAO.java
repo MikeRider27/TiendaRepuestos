@@ -53,7 +53,7 @@ private static Logger logger = Logger.getLogger(TipoDocumentoDAO.class.getName()
             sql = "select idTipoDocumento, descripcion "
                     + "from tipodocumento "
                     + "where descripcion like '%" + (nts.trim()) + "%'"
-                    + "order by idTipoDocumento desc LIMIT " + inicio + ", " + registrosPorPagina;
+                    + "order by idTipoDocumento desc LIMIT " + registrosPorPagina + " OFFSET " + inicio;
             List<TipoDocumento> lstTipoDocumento = null;
             TipoDocumento tipoDocumento;
             try{

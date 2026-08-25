@@ -61,14 +61,14 @@ public class EmpleadoDAO implements iEmpleadoDAO{
     @Override
     public List<Empleado> buscar(String nombres, int inicio, int registrosPorPagina) {
         logger.info("buscar");
-        sql = "select e.idEmpleado, p.nombres, e.apellidos, td.descripcion, p.numerodocumento, p.email, p.direccion, p.telefono, te.descripcion "
+        sql = "select e.idEmpleado, p.nombres, e.apellidos, td.descripcion as tdDescripcion, p.numerodocumento, p.email, p.direccion, p.telefono, te.descripcion as teDescripcion "
                 + "from tipoempleado as te inner join empleado as e " +
                 "on te.idtipoempleado=e.idtipoempleado " +
                 "inner join persona as p " +
                 "on e.idpersona=p.idpersona inner join tipodocumento as td " +
                 "on p.idtipodocumento=td.idtipodocumento "
                 + "where nombres like '%" + (nombres.trim()) + "%' "
-                + "order by idEmpleado desc LIMIT " + inicio + ", " + registrosPorPagina;
+                + "order by idEmpleado desc LIMIT " + registrosPorPagina + " OFFSET " + inicio;
         
         List<Empleado> lstEmpleado = null;
         Empleado empleado;
@@ -91,7 +91,7 @@ public class EmpleadoDAO implements iEmpleadoDAO{
                 empleado.setNombres(rs.getString("nombres"));
                 empleado.setApellidos(rs.getString("apellidos"));
                 
-                tipoDocumento.setDescripcion(rs.getString("td.descripcion"));
+                tipoDocumento.setDescripcion(rs.getString("tdDescripcion"));
                 empleado.setTipoDocumento(tipoDocumento);
                 
                 empleado.setNumeroDocumento(rs.getString("numerodocumento")); 
@@ -99,7 +99,7 @@ public class EmpleadoDAO implements iEmpleadoDAO{
                 empleado.setDireccion(rs.getString("direccion")); 
                 empleado.setTelefono(rs.getString("telefono"));              
                 
-                tipoEmpleado.setDescripcion(rs.getString("te.descripcion"));
+                tipoEmpleado.setDescripcion(rs.getString("teDescripcion"));
                 empleado.setTipoEmpleado(tipoEmpleado);
 
                 lstEmpleado.add(empleado);

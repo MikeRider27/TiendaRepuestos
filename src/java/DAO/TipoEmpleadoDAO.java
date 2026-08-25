@@ -54,7 +54,7 @@ public class TipoEmpleadoDAO implements iTipoEmpleadoDAO{
         sql = "select idTipoEmpleado, descripcion "
                 + "from TipoEmpleado "
                 + "where descripcion like '%" + (descripcion.trim()) + "%' "
-                + "order by idTipoEmpleado desc LIMIT " + inicio + ", " + registrosPorPagina;
+                + "order by idTipoEmpleado desc LIMIT " + registrosPorPagina + " OFFSET " + inicio;
         List<TipoEmpleado> lstTipoEmpleado = null;
         TipoEmpleado tipoEmpleado;
         try{

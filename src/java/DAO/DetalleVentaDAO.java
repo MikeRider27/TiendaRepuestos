@@ -132,7 +132,7 @@ public class DetalleVentaDAO implements iDetalleVentaDAO {
             "inner join TipoComprobanteVenta as tcv " +
             "on cv.idTipoComprobanteVenta = tcv.idTipoComprobanteVenta " +
             "where p.nombres like '%" + (nombres.trim()) + "%' " +
-            "order by cv.idComprobanteVenta desc LIMIT " + inicio + ", " + registroPorPagina;
+            "order by cv.idComprobanteVenta desc LIMIT " + registroPorPagina + " OFFSET " + inicio;
         
         List<ComprobanteVenta> lstComprobanteVenta = null;
         ComprobanteVenta comprobanteVenta;

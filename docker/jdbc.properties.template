@@ -1,0 +1,9 @@
+#PostgreSQL
+usr = ${DB_USER}
+pwd = ${DB_PASSWORD}
+driver = org.postgresql.Driver
+url = jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+
+minsize = 3
+maxsize = 8
+steep = 2

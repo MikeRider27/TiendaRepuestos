@@ -64,7 +64,7 @@ public class RepuestoDAO implements iRepuestoDAO {
                 "inner join repuesto as r " +
                 "on p.idproducto=r.idproducto " +          
                 "where descripcion like '%" + (descripcion.trim()) + "%' "
-            + "order by idrepuesto desc LIMIT " + inicio + ", " + registrosPorPagina;
+            + "order by idrepuesto desc LIMIT " + registrosPorPagina + " OFFSET " + inicio;
 
         List<Repuesto> lstRepuesto = null;
         

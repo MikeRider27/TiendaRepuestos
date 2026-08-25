@@ -75,7 +75,7 @@ public class ProveedorDAO implements iProveedorDAO{
                 "inner join tipodocumento as td " +
                 "on p.idtipodocumento=td.idtipodocumento " +
                 "where razonComercial like '%" + (razonComercial.trim()) + "%' "+
-                "order by idProveedor desc Limit "+ inicio + ", " + registrosPorPagina;
+                "order by idProveedor desc LIMIT "+ registrosPorPagina + " OFFSET " + inicio;
         
         List<Proveedor> lstProveedor = null;
         Proveedor proveedor;

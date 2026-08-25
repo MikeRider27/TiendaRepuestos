@@ -81,7 +81,7 @@ public class ClienteDAO implements iClienteDAO{
                 "inner join tipocliente tc " +
                 "on tc.idTipoCliente = c.idTipoCliente " +
                 "where c.apellidos like '%" + (nombres.trim()) + "%' or c.razonSocial like '%" + (nombres.trim()) + "%' "
-                + "order by idCliente desc LIMIT " + inicio + ", " + registrosPorPagina;
+                + "order by idCliente desc LIMIT " + registrosPorPagina + " OFFSET " + inicio;
 
         List<Cliente> lstCliente = null;
         Cliente cliente;

@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8085:8080"
+    environment:
+      DB_HOST: ${DB_HOST:-192.168.11.220}
+      DB_PORT: ${DB_PORT:-5436}
+      DB_NAME: ${DB_NAME:-irresistibles}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:?falta DB_PASSWORD, definila en .env}
+    restart: unless-stopped
