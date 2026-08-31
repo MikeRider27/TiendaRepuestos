@@ -72,7 +72,7 @@
                                   <h5><%=user.getNombres() %></h5>
                                   <h5><span class="label label-default"><%=user.getCargo() %></span></h5>
                                   <div role="separator" class="divider divider2"></div>
-                                  <p><a href="#" class="btn btn-danger" onclick="cerrarSesion()" role="button">Cerrar Sesión</a>
+                                  <p><a href="#" class="btn btn-danger" onclick="cerrarSesion()" role="button">Cerrar Sesiï¿½n</a>
                                 </div>
                             </div>
                         </ul>
@@ -111,8 +111,8 @@
         <div class="container btn-group1">
             <h4 class="text-collapse">Reportes</h4>
             <div class="btn-group btn-group-sm" role="group" aria-label="">
-                <button type="button" class="btn btn-primary">Tipo Servicio</button>
-                <button type="button" class="btn btn-primary">Servicio</button>
+                <a href="ReporteControlador?accion=tipoServicio" target="_blank" class="btn btn-primary">Tipo Servicio</a>
+                <a href="ReporteControlador?accion=servicio" target="_blank" class="btn btn-primary">Servicio</a>
             </div>
         </div>
     </div>
